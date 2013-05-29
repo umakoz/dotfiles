@@ -1,0 +1,56 @@
+"" タイトル
+set titlestring=Firefox
+"" メニュー／右スクロールバー／下スクロールバーを表示
+set gui=addons,nobookmarks,menu,nonavigation,tabs
+set status=input,location,position
+"" echomsg による、表示レベル
+set verbose=1
+"" テキストエディタ
+"set editor='emacs -f'
+"" 新規タブで開く
+set newtab=all
+"" 補完候補はサーチエンジンとロケーションバーの履歴の順番
+set complete=sl
+"" ビジュアルベルの無効化
+set visualbell
+hi Bell display:none;
+"" ヒント
+hi Hint font-size:12pt; color:black; background-color:yellow; opacity:0.8;
+"" ヒントモードで表示する文字
+set hintchars=ifjklasdhguonmerwc
+
+
+"" 補完リストキーバインド
+cmap <Down> <TAB>
+cmap <Up> <S-TAB>
+
+"" 検索
+map s :tabopen google<Space>
+
+"" 5行ずつ移動
+noremap j 5j
+noremap k 5k
+
+"" f で新規タブ、F で現在のタブに開く
+noremap f F
+noremap F f
+
+"" h で前のタブ、l で次のタブを開く
+noremap h gT
+noremap l gt
+
+"" .vimperatorrcを再読み込み(:restartしなくてもいい)
+map <silent> <Leader>R :mapc<CR>:cmapc<CR>:imapc<CR>:so ~/.vimperatorrc<CR>
+
+"" direct_bookmark.js
+let g:direct_sbm_use_services_by_tag='h'
+let g:direct_sbm_use_services_by_post='h'
+"let g:direct_sbm_is_normalize=false
+map a :sbm<Space>
+
+"" feedSomeKeys_3.js
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+lazy fmaps -u='mail\.google\.com/mail' c / j k n p o u e x s r a # [ ] ? gi gs gt gd ga gc
+lazy fmaps -u='mail\.google\.com/mail/.*/[0-9a-f]+$' c / j,n k,p n,j p,k o u e x s r a # [ ] ? gi gs gt gd ga gc
+lazy fmaps -u='www\.google\.co\.jp/reader' -events=vkeypress j k n p m s v A r S N P X O gh ga gs gt gu u / ? J K
+"lazy fmaps -u='https?://www\.rememberthemilk\.com/home/' j k m i c t ? d F,f G,g S,s L,l Y,y H,h M,m <Del> <C-S-Left> <C-S-Right>
