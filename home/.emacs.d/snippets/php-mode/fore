@@ -1,0 +1,6 @@
+# name: foreach ($array as $key => $value) {...}
+# key: fore
+# --
+foreach (${\$array} as ${\$key} => ${\$value}) {
+    $0
+}

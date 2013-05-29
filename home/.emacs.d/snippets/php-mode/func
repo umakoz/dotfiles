@@ -1,0 +1,13 @@
+# name: function(...){...}
+# key: func
+# --
+/**
+ * ${7:comment}
+ *
+ * @param   ${4:mixed}  $3  $5
+ * @return  ${6:void}
+ */
+$1function ${2:name}(${3:param})
+{
+    $0
+}

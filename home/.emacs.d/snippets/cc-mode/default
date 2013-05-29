@@ -1,0 +1,6 @@
+# name: default ...: ... break;
+# key: default
+# --
+default:
+    $0
+    break;

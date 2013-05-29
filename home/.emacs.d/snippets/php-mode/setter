@@ -1,0 +1,12 @@
+# name: function set(...){...}
+# key: setter
+# --
+/**
+ * ${4:comment}設定
+ *
+ * @param   ${3:string}  \$${2:param}  $4
+ */
+$1function set${2:$(capitalize text)}(\$$2)
+{
+    $this->_$2 = \$$2;
+}

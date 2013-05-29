@@ -1,0 +1,23 @@
+# name: class ... 
+# key: class
+# --
+/**
+ * $2
+ *
+ * $3
+ *
+ * @author  umakoz <$4>
+ * @version 1.0
+ */
+class ${1:class_name}
+{
+    /**
+     * コンストラクタ
+     *
+     * @param   ${6:mixed}  $5  $7
+     */
+    function $1(${5:param})
+    {
+        $0
+    }
+}
