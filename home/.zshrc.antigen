@@ -1,7 +1,44 @@
 source ~/antigen/antigen.zsh
 
-# Bundles from the default repo
-antigen-bundle git
-antigen-bundle autojump
-antigen-bundle heroku
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
+# Bundles
+antigen bundles <<EOBUNDLES
+
+  command-not-found
+  zsh-users/zsh-syntax-highlighting
+
+  git
+  git-flow
+  github
+  brew
+
+  bundler
+  # gem
+  # capistrano
+  # knife
+  # pow
+  # powder
+  # vagrant
+  # zeus
+  # jruby
+  # heroku
+
+  # coffee
+  # npm
+  # bower
+
+  # composer
+  # cake
+
+  # redis-cli
+  rsync
+
+EOBUNDLES
+
+# Load the theme.
+antigen theme gallois
+
+# Tell antigen that you're done.
+antigen apply
