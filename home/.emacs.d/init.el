@@ -129,7 +129,6 @@
      helm-c-moccur
      helm-c-yasnippet
      helm-descbinds
-     helm-gist
      helm-gtags
      helm-ls-git
      helm-migemo

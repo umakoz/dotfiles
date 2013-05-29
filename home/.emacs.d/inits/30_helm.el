@@ -59,9 +59,6 @@
     (setq helm-c-yas-space-match-any-greedy t) ;スペース区切りで絞り込めるようにする
     (global-set-key (kbd "C-c y") 'helm-c-yas-complete))
 
-  ;; https://github.com/emacs-helm/helm-gist
-  (require 'helm-gist nil t)
-
 
   ;; https://github.com/emacs-helm/helm-descbinds
   (when (require 'helm-descbinds nil t)
