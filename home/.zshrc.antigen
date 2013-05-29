@@ -1,0 +1,7 @@
+source ~/antigen/antigen.zsh
+
+# Bundles from the default repo
+antigen-bundle git
+antigen-bundle autojump
+antigen-bundle heroku
+
