@@ -1,0 +1,6 @@
+# name: else if (...) {...}
+# key: else
+# --
+else if (${condition}) {
+    $0
+}

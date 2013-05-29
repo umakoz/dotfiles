@@ -1,0 +1,6 @@
+# name: catch ( ... ) { ... }
+# key: catch
+# --
+catch (${exception}) {
+    $0
+}

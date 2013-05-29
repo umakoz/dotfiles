@@ -1,0 +1,12 @@
+# name: function get(...){...}
+# key: getter
+# --
+/**
+ * ${4:comment}取得
+ *
+ * @return  ${3:string}  $4
+ */
+$1function get${2:Param}()
+{
+    return $this->_${2:$(downcase text)};
+}

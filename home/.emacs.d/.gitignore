@@ -1,0 +1,16 @@
+.DS_Store
+*.elc
+
+/.scratch-log
+/.scratch-log-prev
+/ac-comphist.dat
+/.mc-lists.el
+/.edbi-ds-history
+/bookmarks
+
+/auto-save-list/
+/eshell/
+/undohist/
+/url/
+/var/pcache/
+/vendor/elpa/
