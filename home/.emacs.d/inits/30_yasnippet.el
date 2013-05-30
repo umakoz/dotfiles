@@ -16,6 +16,10 @@
         ;                       (get-char-property (point) 'face))))
         ;     '(require-snippet-condition . force-in-comment)))
 
+  (global-unset-key (kbd "s-y"))
+  (global-set-key (kbd "s-y n") 'yas/new-snippet)
+  (global-set-key (kbd "s-y f") 'yas/visit-snippet-file)
+
   (and (require 'dropdown-list nil t)
        (setq yas/prompt-functions '(yas/dropdown-prompt
                                     yas/completing-prompt)))
