@@ -14,7 +14,7 @@
      ("s-4" . e2wm:dp-doc)
      ("s-5" . e2wm:dp-dashboard)
      ("s-6" . e2wm:dp-magit)
-     ("s-7" . e2wm:dp-edbi)
+     ;; ("s-7" . e2wm:dp-edbi)
      ("s-8" . e2wm:dp-array)
      ("s-p" . e2wm:pst-history-forward-command)
      ("s-n" . e2wm:pst-history-back-command)
@@ -33,9 +33,9 @@
 
   ;; Emacs DBI パースペクティブ
   ;; https://github.com/kiwanami/emacs-edbi
-  (autoload 'e2wm:dp-edbi "e2wm-edbi" nil t)
-  (when (require 'edbi nil t)
-    (setenv "DYLD_FALLBACK_LIBRARY_PATH" "/usr/local/oracle/instantclient_11_2")) ; Oracle Instant Clientパスの環境変数
+  ;; (autoload 'e2wm:dp-edbi "e2wm-edbi" nil t)
+  ;; (when (require 'edbi nil t)
+  ;;   (setenv "DYLD_FALLBACK_LIBRARY_PATH" "/usr/local/oracle/instantclient_11_2")) ; Oracle Instant Clientパスの環境変数
 
 
 
