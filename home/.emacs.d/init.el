@@ -56,6 +56,7 @@
      gtags
      migemo
      recentf-ext
+     foreign-regexp
 
      ;; programming
      quickrun
