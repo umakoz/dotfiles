@@ -14,6 +14,7 @@
                   ("\\.ru$" . ruby-mode)
                   ("\\.gemspec$" . ruby-mode)
                   ("\\.god$" . ruby-mode)
+                  ("\\.axlsx$" . ruby-mode)
                   ("[Rr]akefile" . ruby-mode)
                   ("[Cc]apfile" . ruby-mode)
                   ("[Gg]uardfile" . ruby-mode)
