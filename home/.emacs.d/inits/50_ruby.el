@@ -48,8 +48,17 @@
     (define-key ruby-mode-map (kbd "s-j") 'helm-rails-javascripts)
     (define-key ruby-mode-map (kbd "s-s") 'helm-rails-stylesheets)
     (define-key ruby-mode-map (kbd "s-t") 'helm-rails-specs)
-    (define-key ruby-mode-map (kbd "s-r") 'helm-rails-workers)
-    (define-key ruby-mode-map (kbd "s-a") 'helm-rails-all))
+    (define-key ruby-mode-map (kbd "s-w") 'helm-rails-workers)
+    (define-key ruby-mode-map (kbd "s-a") 'helm-rails-all)
+
+    (define-key rhtml-mode-map (kbd "s-c") 'helm-rails-controllers)
+    (define-key rhtml-mode-map (kbd "s-m") 'helm-rails-models)
+    (define-key rhtml-mode-map (kbd "s-v") 'helm-rails-views)
+    (define-key rhtml-mode-map (kbd "s-j") 'helm-rails-javascripts)
+    (define-key rhtml-mode-map (kbd "s-s") 'helm-rails-stylesheets)
+    (define-key rhtml-mode-map (kbd "s-t") 'helm-rails-specs)
+    (define-key rhtml-mode-map (kbd "s-w") 'helm-rails-workers)
+    (define-key rhtml-mode-map (kbd "s-a") 'helm-rails-all))
 
   ;; Rinari
   (when (require 'rinari nil t)
