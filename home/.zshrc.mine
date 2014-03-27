@@ -2,6 +2,12 @@
 
 alias be="bundle exec"
 
+
+# docker
+alias dl='docker ps -l -q'
+alias docker_rm_all='docker rm $(docker ps -a -q)'
+
+
 #_search_word () {
 #    _wanted test expl 'search_word' compadd \
 #    $(command ls $(pear config-get data_dir)/phpman/html \
