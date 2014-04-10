@@ -25,5 +25,5 @@
 (define-key Buffer-menu-mode-map "O" 'Buffer-menu-moccur)
 
 ;;(global-set-key "\M-f" 'grep-buffers)
-(global-set-key (kbd "C-x g") 'moccur-grep-find)
+;;(global-set-key (kbd "C-x g") 'moccur-grep-find)
 ;;(global-set-key "\C-c\C-o" 'search-buffers)
