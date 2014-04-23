@@ -7,6 +7,7 @@
 /.mc-lists.el
 /.edbi-ds-history
 /bookmarks
+/projectile-bookmarks.eld
 
 /auto-save-list/
 /eshell/
