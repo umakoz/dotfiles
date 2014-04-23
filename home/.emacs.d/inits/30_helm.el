@@ -28,7 +28,11 @@
 
   ;; https://github.com/emacs-helm/helm-ls-git
   (when (require 'helm-ls-git nil t)
-    (global-set-key (kbd "C-x p") 'helm-ls-git-ls))
+    (global-set-key (kbd "C-x t") 'helm-ls-git-ls))
+
+  ;; https://github.com/bbatsov/projectile
+  (when (require 'helm-projectile nil t)
+    (global-set-key (kbd "C-x p") 'helm-projectile))
 
   ;; https://github.com/syohex/emacs-helm-gtags
   (when (require 'helm-gtags nil t)
