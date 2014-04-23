@@ -17,7 +17,7 @@
               "/usr/local/sbin"
               "/usr/local/bin"
               (expand-file-name "~/bin")
-              (expand-file-name "~/.nvm/v0.10.5/bin")
+              (expand-file-name "~/.nvm/v0.10.26/bin")
               (expand-file-name "~/.emacs.d/bin")))
  ;; PATH と exec-path に同じ物を追加します
  (when (and (file-exists-p dir) (not (member dir exec-path)))
