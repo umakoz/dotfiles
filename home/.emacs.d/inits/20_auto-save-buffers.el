@@ -5,5 +5,7 @@
 ;; http://0xcc.net/misc/auto-save/auto-save-buffers.el
 ;; http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el
 
-(and (require 'auto-save-buffers nil t)
-     (run-with-idle-timer 3 t 'auto-save-buffers))
+(when (require 'auto-save-buffers-enhanced nil t)
+  (setq auto-save-buffers-enhanced-interval 3) ; 指定のアイドル秒で保存
+  ;(auto-save-buffers-enhanced-include-only-checkout-path t) ; VCS管理下のファイルだけを対象にする
+  (auto-save-buffers-enhanced t))
