@@ -18,7 +18,7 @@
     '((:command . "bundle exec ruby")
        (:compile-only . "%c -wc %s")
        (:description . "Run Ruby script with Bundler"))
-    :mode 'ruby-mode)
+    :mode 'enh-ruby-mode)
   (quickrun-set-default "ruby" "ruby/bundle")
 
   (global-set-key (kbd "<f5>") 'quickrun-sc))

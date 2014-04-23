@@ -12,7 +12,7 @@
                              text-mode-hook
                              php-mode-hook
                              python-mode-hook
-                             ruby-mode-hook
+                             enh-ruby-mode-hook
                              rhtml-mode-hook
                              css-mode-hook
                              yaml-mode-hook

@@ -7,7 +7,7 @@
            (add-to-list 'align-rules-list
                         (cons (car lst)
                               (append (cdr lst)
-                                      (list '(modes . '(ruby-mode)))))))
+                                      (list '(modes . '(enh-ruby-mode)))))))
         (list
          '(ruby-comma-delimiter
            (regexp . ",\\(\\s-*\\)[^# \t\n]"))
