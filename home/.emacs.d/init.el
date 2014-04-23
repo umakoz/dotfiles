@@ -26,6 +26,9 @@
      bm
      dired+
      scratch-log
+     rainbow-mode
+     smartparens
+     auto-save-buffers-enhanced
 
      ;; undo redo
      undo-tree
@@ -41,15 +44,23 @@
      expand-region
      jaunte
 
+     ;; highlight
+     auto-highlight-symbol
+     highlight-symbol
+     volatile-highlights
+
      ;; window
      window-layout
      popwin
      e2wm
      edbi
      dropdown-list
+     powerline
      yascroll
 
      ;; find search replace
+     ag
+     anzu
      color-moccur
      ctags
      ctags-update
@@ -57,10 +68,13 @@
      migemo
      recentf-ext
      foreign-regexp
+     wgrep
+     wgrep-ag
 
      ;; programming
      quickrun
      dash-at-point
+     projectile
      sql-indent
 
      ;; auto-complete
@@ -74,17 +88,18 @@
      flymake-easy
 
      ;; ruby
+     bundler
+     enh-ruby-mode
      ruby-compilation
      ruby-block
-     ruby-electric
      ruby-tools
      rinari
-     rsense
      flymake-ruby
      inf-ruby
      rhtml-mode
      rspec-mode
      rbenv
+     robe
 
      ;; javascript
      js2-mode
@@ -127,12 +142,14 @@
 
      ;; helm
      helm
+     helm-ag
      helm-c-moccur
      helm-c-yasnippet
      helm-descbinds
      helm-gtags
      helm-ls-git
      helm-migemo
+     helm-projectile
      helm-rails
 
      ;; org
@@ -140,7 +157,6 @@
 
      ;; theme
      solarized-theme
-     molokai-theme
      ))
 
   ;; melpa.el
