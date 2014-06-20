@@ -8,32 +8,19 @@ antigen bundles <<EOBUNDLES
 
   command-not-found
   zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-completions
 
   git
   git-flow
-  github
   brew
+  brew-cask
+
+  docker
+  vagrant
 
   bundler
-  # gem
-  # capistrano
-  # knife
-  # pow
-  # powder
-  # vagrant
-  # zeus
-  # jruby
-  # heroku
 
-  # coffee
-  # npm
-  # bower
-
-  # composer
-  # cake
-
-  # redis-cli
-  rsync
+  golang
 
 EOBUNDLES
 

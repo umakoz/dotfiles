@@ -1,63 +1,77 @@
-#compdef phpman
-
 alias be="bundle exec"
 
 
-# docker
+
+function exists { which $1 &> /dev/null }
+
+function cdup() {
+  if [ -z "${BUFFER}" ]; then
+    echo
+    cd ..
+    zle reset-prompt
+  else
+    zle self-insert '^'
+  fi
+}
+zle -N cdup
+bindkey '\^' cdup
+
+
+
+##### docker #####
 alias dl='docker ps -l -q'
 alias docker_rm_all='docker rm $(docker ps -a -q)'
 
 
-#_search_word () {
-#    _wanted test expl 'search_word' compadd \
-#    $(command ls $(pear config-get data_dir)/phpman/html \
-#        | sed -e 's/\.html$//' \
-#        | sed -e 's/^.*\.//' \
-#        | sed -e 's/-/_/g')
-#}
-#
-#_arguments \
-#    '(-s --sync)'{-s,--sync}'[update php manual newest]' \
-#    '(-h --help)'{-h,--help}'[shop help]' \
-#    ':search_word:_search_word'
 
-
+##### emacs #####
 # http://masutaka.net/chalow/2011-09-28-1.html
 ## Invoke the ``dired'' of current working directory in Emacs buffer.
 function dired () {
-  #emacsclient -e "(dired \"${1:a}\")"
   emacsclient -e "(dired \"$1\")"
 }
-
-# http://masutaka.net/chalow/2011-09-28-1.html
-## Chdir to the ``default-directory'' of currently opened in Emacs buffer.
-#function cde () {
-#    EMACS_CWD=`emacsclient -e "
-#     (expand-file-name
-#      (with-current-buffer
-#          (if (featurep 'elscreen)
-#              (let* ((frame-confs (elscreen-get-frame-confs (selected-frame)))
-#                     (num (nth 1 (assoc 'screen-history frame-confs)))
-#                     (cur-window-conf (cadr (assoc num (assoc 'screen-property frame-confs))))
-#                     (marker (nth 2 cur-window-conf)))
-#                (marker-buffer marker))
-#            (nth 1
-#                 (assoc 'buffer-list
-#                        (nth 1 (nth 1 (current-frame-configuration))))))
-#        default-directory))" | sed 's/^"\(.*\)"$/\1/'`
-#
-#    echo "chdir to $EMACS_CWD"
-#    cd "$EMACS_CWD"
-#}
 
 # https://gist.github.com/1247111
 ## Chdir to the ``default-directory'' of currently opened in Emacs buffer.
 ## for e2wm
-function cde () {
-    EMACS_CWD=`emacsclient -e "
-     (expand-file-name
-      (with-current-buffer (e2wm:current-buffer) default-directory))" | sed 's/^"\(.*\)"$/\1/'`
-
-    echo "chdir to $EMACS_CWD"
-    cd "$EMACS_CWD"
+function cde() {
+  local emacs_cwd=`emacsclient -e "
+   (expand-file-name
+    (with-current-buffer (e2wm:current-buffer) default-directory))" | sed 's/^"\(.*\)"$/\1/'`
+  cd "${emacs_cwd}"
 }
+
+
+
+##### peco #####
+function peco-select-history() {
+  local tac
+  if exists tac; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+  BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle accept-line
+}
+zle -N peco-select-history
+bindkey "^r" peco-select-history
+
+function peco-select-directory() {
+  local tac
+  if exists tac; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+  local selected=$(_z -r 2>&1 | eval $tac | peco --query "$LBUFFER" | awk '{ print $2 }')
+  if [ -n "${selected}" ]; then
+    BUFFER="cd ${selected}"
+    CURSOR=$#BUFFER
+    zle accept-line
+    zle reset-prompt
+  fi
+}
+zle -N peco-select-directory
+bindkey "^j" peco-select-directory

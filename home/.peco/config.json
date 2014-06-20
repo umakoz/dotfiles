@@ -1,0 +1,10 @@
+{
+  "Keymap": {
+    "Pgup": "peco.SelectPreviousPage",
+    "Pgdn": "peco.SelectNextPage",
+    "C-g": "peco.Cancel",
+    "Tab": "peco.ToggleSelectionAndSelectNext",
+    "C-j": "peco.ToggleSelectionAndSelectNext",
+    "C-c": "peco.RotateMatcher"
+  }
+}

@@ -81,6 +81,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups     # ignore duplication command history list
+setopt hist_ignore_all_dups
 setopt share_history        # share command history data
 
 
@@ -202,9 +203,10 @@ precmd() {
 }
 
 
-## load user .zshrc configuration file
-#
-[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
 ## antigen
 [ -f ~/.zshrc.antigen ] && source ~/.zshrc.antigen
+
+## load user .zshrc configuration file
+#
+[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
