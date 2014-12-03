@@ -6,5 +6,8 @@
     "Tab": "peco.ToggleSelectionAndSelectNext",
     "C-j": "peco.ToggleSelectionAndSelectNext",
     "C-c": "peco.RotateMatcher"
+  },
+  "Style": {
+    "Selected": ["black", "on_cyan"]
   }
 }

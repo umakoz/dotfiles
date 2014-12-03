@@ -20,6 +20,7 @@
       ;visible-bell t
       ring-bell-function 'ignore
       x-select-enable-clipboard t
+      use-dialog-box nil
       default-tab-width 4)
 
 (mapc '(lambda (f)
