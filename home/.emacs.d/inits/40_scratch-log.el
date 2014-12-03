@@ -2,7 +2,7 @@
 
 ;; スクラッチバッファに書いた内容のログを取る等
 ;; http://d.hatena.ne.jp/kitokitoki/20100612/p1
-(when (require 'scratch-log.el nil t)
+(when (require 'scratch-log nil t)
   ;; (setq sl-scratch-log-file "~/.emacs.d/.scratch-log")
   ;; (setq sl-prev-scratch-string-file "~/.emacs.d/.scratch-log-prev")
 
