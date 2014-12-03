@@ -91,11 +91,6 @@
 (when (require 'yascroll nil t)
   (global-yascroll-bar-mode 1))
 
-;; jaunte
-(when (require 'jaunte nil t)
-  (setq-default jaunte-hint-unit 'symbol)
-  (global-set-key (kbd "M-j") 'jaunte))
-
 ;; Make Emacs stop asking "Active processes exist; kill them and exit anyway"
 (add-hook 'comint-exec-hook 
       (lambda () (process-kill-without-query (get-buffer-process (current-buffer)))))

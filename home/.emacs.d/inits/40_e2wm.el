@@ -1,7 +1,7 @@
 ;;; -*- mode: emacs-lisp; coding: utf-8-unix; indent-tabs-mode: nil -*-
 
 (when (require 'e2wm nil t)
-  (global-set-key (kbd "H-e") 'e2wm:start-management)
+  ; (global-set-key (kbd "H-e") 'e2wm:start-management)
 
   ; (setq e2wm:prefix-key "s-e")
 

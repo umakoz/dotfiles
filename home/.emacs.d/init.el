@@ -42,7 +42,7 @@
      ;; cursor
      multiple-cursors
      expand-region
-     jaunte
+     ace-jump-mode
 
      ;; highlight
      auto-highlight-symbol
