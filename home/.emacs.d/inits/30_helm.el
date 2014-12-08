@@ -66,6 +66,13 @@
     (setq helm-c-yas-space-match-any-greedy t) ;スペース区切りで絞り込めるようにする
     (global-set-key (kbd "C-c y") 'helm-c-yas-complete))
 
+  ;; https://github.com/syohex/emacs-helm-open-github
+  (when (require 'helm-open-github nil t)
+    (global-set-key (kbd "C-c o f") 'helm-open-github-from-file)
+    (global-set-key (kbd "C-c o c") 'helm-open-github-from-commit)
+    (global-set-key (kbd "C-c o i") 'helm-open-github-from-issues)
+    (global-set-key (kbd "C-c o p") 'helm-open-github-from-pull-requests))
+
 
   ;; https://github.com/emacs-helm/helm-descbinds
   (when (require 'helm-descbinds nil t)

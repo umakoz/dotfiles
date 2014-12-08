@@ -151,6 +151,7 @@
      helm-migemo
      helm-projectile
      helm-rails
+     helm-open-github
      helm-swoop
 
      ;; org
