@@ -3,7 +3,7 @@
 (when (require 'smartrep nil t)
   (declare-function smartrep-define-key "smartrep")
   (global-set-key (kbd "C-M-t") 'mc/mark-all-in-region)
-  (global-unset-key "\C-t")
+  (global-unset-key (kbd "\C-t"))
   (smartrep-define-key global-map "C-t"
     '(("C-t" . 'mc/mark-next-like-this)
       ("n"   . 'mc/mark-next-like-this)

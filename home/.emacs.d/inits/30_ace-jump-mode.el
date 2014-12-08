@@ -19,3 +19,6 @@
 ;; (loop for c from ?0 to ?9 do (add-keys-to-ace-jump-mode "H-M-" c 'word))
 ;; (loop for c from ?a to ?z do (add-keys-to-ace-jump-mode "H-M-" c 'word))
 ;; (loop for c from ?! to ?~ do (add-keys-to-ace-jump-mode "H-M-" c 'word))
+
+(when (require 'ace-isearch nil t)
+  (global-ace-isearch-mode +1))

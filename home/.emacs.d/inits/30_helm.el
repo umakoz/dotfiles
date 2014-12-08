@@ -36,21 +36,24 @@
 
   ;; https://github.com/syohex/emacs-helm-gtags
   (when (require 'helm-gtags nil t)
-      (setq helm-gtags-classify t)
-      (global-set-key "\M-p" 'helm-gtags-select))
+    (custom-set-variables
+     '(helm-gtags-path-style 'relative)
+     '(helm-gtags-ignore-case t)
+     '(helm-gtags-auto-update t))
+    (global-set-key (kbd "M-t") 'helm-gtags-find-tag)
+    (global-set-key (kbd "M-r") 'helm-gtags-find-rtag))
 
-  ;; https://github.com/emacs-helm/helm-c-moccur
-  (when (require 'helm-c-moccur nil t)
-    (setq helm-c-moccur-enable-initial-pattern t)
-    (setq helm-c-moccur-helm-idle-delay 0.1)
-    (defalias 'aoccur 'helm-c-moccur-occur-by-moccur)
-    (global-set-key (kbd "M-o") 'helm-c-moccur-occur-by-moccur)
-    (global-set-key (kbd "C-M-o") 'helm-c-moccur-dmoccur)
-    (add-hook 'dired-mode-hook
-              '(lambda ()
-                 (local-set-key (kbd "O") 'helm-c-moccur-dired-do-moccur-by-moccur)))
-    (global-set-key (kbd "C-M-s") 'helm-c-moccur-isearch-forward)
-    (global-set-key (kbd "C-M-r") 'helm-c-moccur-isearch-backward))
+  (when (require 'helm-swoop nil t)
+    ;; Change the keybinds to whatever you like :)
+    (global-set-key (kbd "M-o") 'helm-swoop)
+    (global-set-key (kbd "M-O") 'helm-swoop-back-to-last-point)
+    (global-set-key (kbd "C-c M-o") 'helm-multi-swoop)
+    (global-set-key (kbd "C-x M-o") 'helm-multi-swoop-all)
+
+    ;; When doing isearch, hand the word over to helm-swoop
+    (define-key isearch-mode-map (kbd "M-o") 'helm-swoop-from-isearch)
+    ;; From helm-swoop to helm-multi-swoop-all
+    (define-key helm-swoop-map (kbd "M-o") 'helm-multi-swoop-all-from-helm-swoop))
 
 
   ;; https://github.com/emacs-helm/helm-migemo

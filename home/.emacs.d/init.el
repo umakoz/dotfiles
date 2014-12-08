@@ -43,6 +43,7 @@
      multiple-cursors
      expand-region
      ace-jump-mode
+     ace-isearch
 
      ;; highlight
      auto-highlight-symbol
@@ -143,7 +144,6 @@
      ;; helm
      helm
      helm-ag
-     helm-c-moccur
      helm-c-yasnippet
      helm-descbinds
      helm-gtags
@@ -151,6 +151,7 @@
      helm-migemo
      helm-projectile
      helm-rails
+     helm-swoop
 
      ;; org
      org ; セットアップ時には自動インストールされないので、手動でインストールすること
