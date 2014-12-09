@@ -58,6 +58,7 @@
      dropdown-list
      powerline
      yascroll
+     diminish
 
      ;; find search replace
      ag
