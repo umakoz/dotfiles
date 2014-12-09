@@ -145,14 +145,15 @@
      ;; helm
      helm
      helm-ag
+     helm-bm
      helm-c-yasnippet
      helm-descbinds
      helm-gtags
      helm-ls-git
      helm-migemo
+     helm-open-github
      helm-projectile
      helm-rails
-     helm-open-github
      helm-swoop
 
      ;; org

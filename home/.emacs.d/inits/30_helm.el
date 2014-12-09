@@ -60,6 +60,12 @@
   (require 'helm-migemo nil t)
 
 
+  ;; https://github.com/yasuyk/helm-bm
+  (when (require 'helm-bm nil t)
+    (push '(migemo) helm-source-bm)
+    ;; 仕切り線を消す
+    (setq helm-source-bm (delete '(multiline) helm-source-bm))
+    (global-set-key (kbd "C-x m") 'helm-bm))
 
   ;; https://github.com/emacs-helm/helm-c-yasnippet
   (when (require 'helm-c-yasnippet nil t)
