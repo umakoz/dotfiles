@@ -12,12 +12,14 @@ antigen bundles <<EOBUNDLES
 
   git
   git-flow
+  git-hubflow
   brew
   brew-cask
 
   docker
   vagrant
 
+  rbenv
   bundler
 
   golang
