@@ -1,5 +1,5 @@
 alias be="bundle exec"
-
+alias e='ghq list -p | p cd'
 
 
 function exists { which $1 &> /dev/null }
@@ -44,6 +44,27 @@ function cde() {
 
 
 ##### peco #####
+function p() { peco | while read LINE; do $@ $LINE; done }
+
+function peco-select-ghq() {
+  ghq list --full-path | p cd
+  zle accept-line
+  zle clear-screen
+}
+zle -N peco-select-ghq
+bindkey "^r" peco-select-ghq
+
+function ghi () {
+  [ "$#" -eq 0 ] && echo "Usage : ghi QUERY" && return 1
+  local selected_dir=$(ghs "$@" | peco | awk '{print $1}')
+  ghq get ${selected_dir}
+  ghq look ${selected_dir}
+}
+
+function ghr () {
+  ghq list --full-path | peco | xargs rm -r
+}
+
 function peco-select-history() {
   local tac
   if exists tac; then
@@ -56,22 +77,19 @@ function peco-select-history() {
   zle accept-line
 }
 zle -N peco-select-history
-bindkey "^r" peco-select-history
+bindkey "^s" peco-select-history
 
 function peco-select-directory() {
-  local tac
-  if exists tac; then
-    tac="tac"
-  else
-    tac="tail -r"
-  fi
-  local selected=$(_z -r 2>&1 | eval $tac | peco --query "$LBUFFER" | awk '{ print $2 }')
-  if [ -n "${selected}" ]; then
-    BUFFER="cd ${selected}"
+  local current_buffer=$BUFFER
+  # .git系など不可視フォルダは除外
+  local selected_dir="$(find . -maxdepth 5 -type d ! -path "*/.*"| peco)"
+  if [ -d "$selected_dir" ]; then
+    BUFFER="${current_buffer} \"${selected_dir}\""
     CURSOR=$#BUFFER
+    # 決定時にそのまま実行するなら
     zle accept-line
-    zle reset-prompt
   fi
+  zle clear-screen
 }
 zle -N peco-select-directory
 bindkey "^j" peco-select-directory
