@@ -2,11 +2,12 @@
 
 (global-set-key [?¥] [?\\]) ; ¥の代わりにバックスラッシュを入力する
 (global-set-key [delete] #'delete-char)
-(global-set-key (kbd "M-g") 'goto-line)
+(global-set-key (kbd "C-l") 'goto-line)
 (global-set-key [(shift f3)] 'kmacro-start-macro)
 (global-set-key [f3] 'kmacro-end-or-call-macro)
 (global-set-key (kbd "C-_") 'redo)
 (global-set-key (kbd "C-%") 'replace-string)
+(global-set-key (kbd "M-i") 'indent-region)
 
 ;; 分割したウィンドウ間の移動
 ;; マイ.emacs探訪 - I am Cruby!

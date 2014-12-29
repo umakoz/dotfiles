@@ -8,8 +8,12 @@
   (setq helm-input-idle-delay 0)
   (setq helm-candidate-number-limit 1000)
 
+  (global-set-key (kbd "C-x b") 'helm-buffers-list)
   (global-set-key (kbd "C-x f") 'helm-for-files)
-  (global-set-key (kbd "C-c j") 'helm-bookmarks)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+  (global-set-key (kbd "M-g") 'helm-do-grep)
+  (global-set-key (kbd "C-z") 'helm-resume)
   (global-set-key [f11] 'helm-imenu)
 
   ;; 自動補完を無効
@@ -20,11 +24,6 @@
   ;; TABで任意補完。選択肢が出てきたらC-nやC-pで上下移動してから決定することも可能
   (define-key helm-c-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
 
-
-  ;; https://github.com/syohex/emacs-helm-ag
-  (when (require 'helm-ag nil t)
-    (global-set-key (kbd "C-;") 'helm-ag)
-    (global-set-key (kbd "C-,") 'helm-ag-pop-stack))
 
   ;; https://github.com/emacs-helm/helm-ls-git
   (when (require 'helm-ls-git nil t)
@@ -57,7 +56,21 @@
 
 
   ;; https://github.com/emacs-helm/helm-migemo
-  (require 'helm-migemo nil t)
+  (when (require 'helm-migemo nil t)
+    ;; helmで正しくMigemoを動作させる！
+    ;; http://rubikitch.com/2014/12/19/helm-migemo/
+    (eval-after-load "helm-migemo"
+      '(defun helm-compile-source--candidates-in-buffer (source)
+         (helm-aif (assoc 'candidates-in-buffer source)
+             (append source
+                     `((candidates
+                        . ,(or (cdr it)
+                               (lambda ()
+                                 ;; Do not use `source' because other plugins
+                                 ;; (such as helm-migemo) may change it
+                                 (helm-candidates-in-buffer (helm-get-current-source)))))
+                       (volatile) (match identity)))
+           source))))
 
 
   ;; https://github.com/yasuyk/helm-bm
@@ -70,19 +83,17 @@
   ;; https://github.com/emacs-helm/helm-c-yasnippet
   (when (require 'helm-c-yasnippet nil t)
     (setq helm-c-yas-space-match-any-greedy t) ;スペース区切りで絞り込めるようにする
-    (global-set-key (kbd "C-c y") 'helm-c-yas-complete))
+    (global-set-key (kbd "C-x y") 'helm-c-yas-complete))
 
   ;; https://github.com/syohex/emacs-helm-open-github
-  (when (require 'helm-open-github nil t)
-    (global-set-key (kbd "C-c o f") 'helm-open-github-from-file)
-    (global-set-key (kbd "C-c o c") 'helm-open-github-from-commit)
-    (global-set-key (kbd "C-c o i") 'helm-open-github-from-issues)
-    (global-set-key (kbd "C-c o p") 'helm-open-github-from-pull-requests))
+  ;; (when (require 'helm-open-github nil t)
+  ;;   (global-set-key (kbd "C-c o f") 'helm-open-github-from-file)
+  ;;   (global-set-key (kbd "C-c o c") 'helm-open-github-from-commit)
+  ;;   (global-set-key (kbd "C-c o i") 'helm-open-github-from-issues)
+  ;;   (global-set-key (kbd "C-c o p") 'helm-open-github-from-pull-requests))
 
 
   ;; https://github.com/emacs-helm/helm-descbinds
   (when (require 'helm-descbinds nil t)
     (helm-descbinds-mode 1)
-    (global-set-key (kbd "<f12>") 'helm-descbinds))
-
-  (global-set-key (kbd "M-y") 'helm-show-kill-ring))
+    (global-set-key (kbd "<f12>") 'helm-descbinds)))
