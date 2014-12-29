@@ -195,14 +195,6 @@ kterm*|xterm*)
 esac
 
 
-# z configuration
-_Z_CMD=j
-source /usr/local/etc/profile.d/z.sh
-precmd() {
-  _z --add "$(pwd -P)"
-}
-
-
 
 ## antigen
 [ -f ~/.zshrc.antigen ] && source ~/.zshrc.antigen
