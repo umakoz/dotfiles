@@ -106,4 +106,8 @@
 
 ;; Make Emacs stop asking "Active processes exist; kill them and exit anyway"
 (add-hook 'comint-exec-hook 
-      (lambda () (process-kill-without-query (get-buffer-process (current-buffer)))))
+          (lambda () (process-kill-without-query (get-buffer-process (current-buffer)))))
+
+;; use coreutils for ls --dired http://qiita.com/maangie/items/5a80ae50c13d14368a72
+(let ((gls "/usr/local/bin/gls"))
+  (if (file-exists-p gls) (setq insert-directory-program gls)))

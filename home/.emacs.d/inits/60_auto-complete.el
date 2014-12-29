@@ -10,6 +10,7 @@
     ;(global-set-key "\M-/" 'ac-start) ; 補完開始
     (setq ac-auto-start 2 ; 補完を開始する文字数
           ac-dwim t ; Do what i mean
+          ac-use-menu-map t
           ac-use-overriding-local-map nil) ; don't override local map
 
     (define-key ac-complete-mode-map "\C-n" 'ac-next)
@@ -29,4 +30,5 @@
          ac-source-filename
          )))
 
+    (add-hook 'auto-complete-mode-hook 'ac-common-setup)
     (global-auto-complete-mode t)))

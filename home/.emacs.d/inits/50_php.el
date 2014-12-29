@@ -19,7 +19,7 @@
               ;; (setq php-manual-path "/usr/local/share/php/doc")
               (setq php-manual-url "http://jp2.php.net/manual/ja/")
               (setq php-search-url "http://jp2.php.net/ja/")
-              (gtags-mode 1)
+              'helm-gtags-mode
               (when (require 'php-completion nil t)
                 (php-completion-mode t)
                 (define-key php-mode-map (kbd "C-o") 'phpcmp-complete))
