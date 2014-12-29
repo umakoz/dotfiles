@@ -20,7 +20,7 @@
    '(
      ;; package
      init-loader
-     melpa
+     exec-path-from-shell
 
      ;; basic
      bm
@@ -38,6 +38,7 @@
      ;; key
      smartrep
      key-chord
+     sequential-command
 
      ;; cursor
      multiple-cursors
@@ -118,6 +119,14 @@
      php-mode
      flymake-php
 
+     ;; golang
+     go-mode
+     go-autocomplete
+     go-eldoc
+
+     ;; swift
+     swift-mode
+
      ;; markup
      zencoding-mode
      flymake-css
@@ -169,6 +178,6 @@
 ;; init-loader
 ;; http://coderepos.org/share/browser/lang/elisp/init-loader/init-loader.el
 ;; デフォルトで"~/.emacs.d/inits"以下のファイルをロードする
-(require 'init-loader)
-(setq init-loader-show-log-after-init nil)
-(init-loader-load)
+(when (require 'init-loader nil t)
+  (setq init-loader-show-log-after-init nil)
+  (init-loader-load))
