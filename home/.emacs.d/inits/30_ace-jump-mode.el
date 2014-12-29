@@ -22,3 +22,7 @@
 
 (when (require 'ace-isearch nil t)
   (global-ace-isearch-mode +1))
+
+(when (require 'ace-window nil t)
+  (global-set-key (kbd "C-x o") 'ace-window)
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))

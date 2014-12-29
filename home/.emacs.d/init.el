@@ -45,6 +45,7 @@
      expand-region
      ace-jump-mode
      ace-isearch
+     ace-window
 
      ;; highlight
      auto-highlight-symbol
