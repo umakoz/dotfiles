@@ -1,11 +1,18 @@
-[include]
-    path = ~/.gitconfig.local
+[user]
+    name = umakoz 
+    email = 
+
+[github]
+    user = umakoz
 
 [core]
     excludesfile = ~/.gitignore.global
     precomposeunicode = true
     pager = less -r
     editor = vi
+
+[credential]
+    helper = osxkeychain
 
 [color]
     ui = auto
@@ -14,14 +21,14 @@
     default = tracking
 
 [difftool "sourcetree"]
-    cmd = /Applications/dev/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path = 
 
 [mergetool]
     keepBackup = true
 
 [mergetool "sourcetree"]
-    cmd = /Applications/dev/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
 
 [alias]
@@ -54,6 +61,12 @@
     rev = https://{host}/{path}/commit/{commit}
     file = "https://{host}/{path}/blob/{short_rev}/{file}{line && \"#L%d\" % line}"
 
-[user]
-    name = umakoz
-    email = um@makoz.net
+[ghq]
+    root = ~/src
+    root = ~/.homesick
+
+[include]
+    path = ~/.gitconfig.local
+
+[commit]
+    template = ~/.stCommitMsg

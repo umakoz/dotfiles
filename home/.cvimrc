@@ -1,0 +1,34 @@
+set smoothscroll
+set noautofocus
+set cncpcompletion
+
+let scrollstep = 150
+let barposition = "bottom"
+let locale = "jp"
+
+command google tabnew google
+let completionengines = ["google"]
+
+let blacklists = ["https://mail.google.com/*","https://www.google.com/calendar/*"]
+
+map f createActiveTabbedHint
+map F createHint
+map h previousTab
+map l nextTab
+map d closeTab
+map u lastClosedTab
+map @ pinTab
+map <C-h> moveTabLeft
+map <C-l> moveTabRight
+map p openPasteTab
+map P openPaste
+map R reloadTabUncached
+map s :google<Space>
+map b :bookmarks!<Space>
+map <M-i> goToInput
+map y yankDocumentUrl
+map <C-g> :execute vyP<CR>
+
+let configpath = '/Users/ST20186/.cvimrc'
+set localconfig
+
